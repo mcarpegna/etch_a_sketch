@@ -1,0 +1,152 @@
+/* Globals */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* 1 rem = 10px */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/background.webp);
+    background-size: cover;
+    color: rgb(196, 232, 240);
+    font-family: 'Nothing You Could Do', cursive;
+}
+
+header h1 { /*Had to be more specific with header cos normalize didn't let me modify h1*/
+    font-size: 4.2rem;
+    margin: .5rem;
+    text-align: center;
+}
+
+p {
+    margin: .5rem;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    cursor: pointer;
+}
+
+input {
+    cursor: pointer;
+}
+
+/* More specific */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    width: 80.2rem;
+    height: 4.8rem;
+    font-size: 2.6rem;
+    padding: .5rem 0;
+}
+
+.range {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.box-number{
+    appearance: none; /*allows to change the input/range default appearance with css */
+    -webkit-appearance: none; /*for better compatibility with some browsers*/
+    width: 15rem;
+    height: .5rem;
+    border-radius: .2rem;
+    margin: .5rem;
+    background: rgb(190, 214, 219);
+}
+
+.box-number::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    width: 1.5rem; 
+    height: 1.5rem; 
+    background: rgb(92, 181, 204); 
+    border-radius: 50px;
+}
+
+.box-number::-moz-range-thumb{
+    width: 1.5rem; 
+    height: 1.5rem; 
+    background: rgb(92, 181, 204); 
+    border-radius: 50px;
+}
+
+.input-text {
+    width: 10rem;
+    margin: .5rem;
+    text-align: center;
+}
+
+.colors {
+    display: flex;
+    gap: .5rem;
+}
+
+/* Trick for give style to radio buttons */
+input[type=radio] {
+    display: none;
+}
+
+.radio-button {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: rgb(190, 214, 219);
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+}
+
+.radio-button::after {
+    content: '';
+    position: absolute;
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: rgb(92, 181, 204);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+input[type=radio]:checked + label .radio-button::after {
+    opacity: 1;
+}
+
+.grid {
+    border: 0.1rem solid rgb(92, 181, 204);
+    width: 80.2rem;
+    height: auto;
+}
+
+.box {
+    background-color: rgb(190, 214, 219);
+}
+
+.reset {
+    padding: .5rem;
+    border: .1rem solid rgb(190, 214, 219);
+    border-radius: .5rem;
+    background-color: rgb(92, 181, 204);
+    cursor: pointer;
+}
+
+.choices {
+    font-size: 1.8rem;
+}

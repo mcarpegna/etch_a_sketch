@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-A-Sketch Project</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Etch-A-Sketch</h1>
+        <p class="choices">Choose grid and style. Click to start or stop painting. Reset... and have fun!</p>
+
+    </header>
+    <nav class="controls">
+        <div class="range">
+            <p class="input-message">Grid Size</p>
+            <input type="range" class="box-number" min="8" max="96" step="8" value="16">
+            <p class="input-text">00 x 00</p>
+        </div>
+        <div class="colors">
+            <input type="radio" name="color" value="black" id="black">
+            <label for="black">
+                <span class="radio-button"></span>
+                Black
+            </label>
+
+            <input type="radio" name="color" value="colors" id="colors">
+            <label for="colors">
+                <span class="radio-button"></span>
+                Colors
+            </label>
+
+            <input type="radio" name="color" value="erase" id="erase">
+            <label for="erase">
+                <span class="radio-button"></span>
+                Erase
+            </label>            
+        </div>
+        <button class="reset">Reset</button>
+    </nav>
+    <main class="grid"></main>
+</body>
+</html>
