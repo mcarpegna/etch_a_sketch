@@ -27,13 +27,11 @@ body {
 
 header h1 {
     /*Had to be more specific with header cos normalize didn't let me modify h1*/
-    font-size: 4.2rem;
-    margin: .5rem;
+    font-size: 4.8rem;
     text-align: center;
-}
+    padding: .5rem .5rem 0;
+    margin: .5rem 0 0 0;
 
-p {
-    margin: .5rem;
 }
 
 label {
@@ -46,20 +44,25 @@ input {
     cursor: pointer;
 }
 
+footer {
+    font-size: 1.6rem;
+    margin: .5rem;
+}
+
 /* More specific */
 .controls {
     display: flex;
     justify-content: space-between;
     width: 80.2rem;
-    height: 4.8rem;
-    font-size: 2.6rem;
-    padding: .5rem 0;
+    height: 5rem;
+    font-size: 2.8rem;
+    padding: 0 .5rem 0 .5rem;
 }
 
 .range {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: .3rem;
 }
 
 .box-number {
@@ -67,7 +70,7 @@ input {
     /*allows to change the input/range default appearance with css */
     -webkit-appearance: none;
     /*for better compatibility with some browsers*/
-    width: 8rem;
+    width: 12rem;
     height: .5rem;
     border-radius: .2rem;
     margin: .5rem;
@@ -91,13 +94,13 @@ input {
 
 .input-text {
     width: 10rem;
-    margin: .5rem;
     text-align: center;
+    margin: 0;
 }
 
 .colors {
     display: flex;
-    gap: .5rem;
+    gap: .3rem;
 }
 
 /* Trick for give style to radio buttons */
@@ -132,8 +135,15 @@ input[type=radio]:checked+label .radio-button::after {
     opacity: 1;
 }
 
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
 .reset {
-    padding: .5rem;
+    height: 3.5rem;
+    width: 10rem;
+    padding: .4rem 0 0;
     border: .1rem solid rgb(190, 214, 219);
     border-radius: .5rem;
     background-color: rgb(92, 181, 204);

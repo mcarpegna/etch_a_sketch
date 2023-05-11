@@ -15,11 +15,11 @@
 <body>
     <header>
         <h1>Etch-A-Sketch</h1>
-        <p class="choices">Choose grid and style. Click to start or stop painting. Reset... and have fun!</p>
+        <!-- <p class="choices">Choose grid and style. Click to start or stop painting. Reset... and have fun!</p> -->
     </header>
     <nav class="controls">
         <div class="range">
-            <label for="box-number">Grid Size</label>
+            <label for="box-number">Grid</label>
             <input type="range" class="box-number" id="box-number" min="8" max="96" step="8" value="16">
             <p class="input-text">00 x 00</p>
         </div>
@@ -44,7 +44,9 @@
             </label>
 
         </div>
-        <button type="reset" class="reset" aria-label="Reset">Reset</button>
+        <div class="button-container">
+            <button type="reset" class="reset" aria-label="Reset">Reset</button>
+        </div>
     </nav>
     <main class="grid"></main>
     <footer>Designed and developed by Mario A. Carpegna</footer>
