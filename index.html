@@ -3,15 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png">
-    <title>Etch-A-Sketch Project</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png" aria-multiline="notebook icon">
+    <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <link rel="stylesheet" href="css/normalize.css" media="screen">
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet" media="screen">
     <script src="js/app.js" defer></script>
 </head>
 
@@ -19,15 +16,15 @@
     <header>
         <h1>Etch-A-Sketch</h1>
         <p class="choices">Choose grid and style. Click to start or stop painting. Reset... and have fun!</p>
-
     </header>
     <nav class="controls">
         <div class="range">
-            <p class="input-message">Grid Size</p>
-            <input type="range" class="box-number" min="8" max="96" step="8" value="16">
+            <label for="box-number">Grid Size</label>
+            <input type="range" class="box-number" id="box-number" min="8" max="96" step="8" value="16">
             <p class="input-text">00 x 00</p>
         </div>
         <div class="colors">
+
             <input type="radio" name="color" value="black" id="black">
             <label for="black">
                 <span class="radio-button"></span>
@@ -44,10 +41,13 @@
             <label for="erase">
                 <span class="radio-button"></span>
                 Erase
-            </label>            
+            </label>
+
         </div>
-        <button class="reset">Reset</button>
+        <button type="reset" class="reset" aria-label="Reset">Reset</button>
     </nav>
     <main class="grid"></main>
+    <footer>Designed and developed by Mario A. Carpegna</footer>
 </body>
+
 </html>

@@ -1,21 +1,23 @@
-let grid = document.querySelector('.grid')
-let boxesPerGrid = 16;
-let boxSide = `${80 / boxesPerGrid}rem`;
+let boxesPerSide = 16;
+let boxSide = `${800 / boxesPerSide}px`;
 let painting = false;
 let selectedColor = '';
+let allowPainting = false;
 
-//take the value from the slider
-let rangeInput = document.querySelector('.box-number');
+//take the value from the slider for grid size and creates it
+const rangeInput = document.querySelector('.box-number');
 rangeInput.addEventListener('input', () => {
-    boxesPerGrid = rangeInput.value;
-    boxSide = `${80 / boxesPerGrid}rem`;
+    boxesPerSide = rangeInput.value;
+    boxSide = `${800 / boxesPerSide}px`;
     grid.innerHTML = ''; // clean the current grid
-    createGrid(boxesPerGrid); // create a new grid with the new value
+    createGrid(boxesPerSide); // create a new grid with the new value
 });
 
 //select color option
-let colorRadioButtons = document.querySelectorAll('input[name="color"]');
+const colorRadioButtons = document.querySelectorAll('input[name="color"]');
 function handleColorChange() {
+    allowPainting = false;
+    painting = false;
     colorRadioButtons.forEach((radioButton) => {
         if (radioButton.checked) {
             selectedColor = radioButton.value;
@@ -26,17 +28,16 @@ colorRadioButtons.forEach((radioButton) => {
     radioButton.addEventListener('change', handleColorChange);
 });
 
-
 // Create the grid and let user draw
-function createGrid(boxesPerGrid) {
+const grid = document.querySelector('.grid');
+function createGrid(boxesPerSide) {
+    resetRadioButtons() //black is selected by default   
     //show boxes number per side selected
     let textInput = document.querySelector('.input-text');
-    textInput.textContent = `${boxesPerGrid} x ${boxesPerGrid}`
+    textInput.textContent = `${boxesPerSide} x ${boxesPerSide}`;
 
-    grid.style.display = 'flex';
-    grid.style.flexWrap = 'wrap';
-    for (let i = 0; i < boxesPerGrid * boxesPerGrid; i++) {
-        let box = document.createElement('div');
+    for (let i = 0; i < boxesPerSide * boxesPerSide; i++) {
+        const box = document.createElement('div');
         box.classList.add('box');
         box.style.width = boxSide;
         box.style.height = boxSide;
@@ -50,8 +51,9 @@ function createGrid(boxesPerGrid) {
                 box.style.backgroundColor = getRandomColor();
             } else if (selectedColor === "erase") {
                 box.style.backgroundColor = "rgb(190, 214, 219)";
-            }
+            };
             painting = !painting;
+            allowPainting = true;
         });
 
         //paint each box when hover (depending on color choice)
@@ -60,25 +62,16 @@ function createGrid(boxesPerGrid) {
         });
     }
 };
-createGrid(boxesPerGrid);
-
-//reset grid to start fresh without reloading de whole page
-let resetButton = document.querySelector('.reset');
-resetButton.addEventListener('click', resetGrid);
-
-function resetGrid() {
-    let boxes = document.querySelectorAll('.box');
-    boxes.forEach((box) => {
-        box.style.backgroundColor = "rgb(190, 214, 219)";
-    });
-}
+createGrid(boxesPerSide);
 
 function paint(box) {
-    if (painting) {
+    if (allowPainting && painting) {
         if (selectedColor === "black") {
             box.style.backgroundColor = "black";
         } else if (selectedColor === "colors") {
             box.style.backgroundColor = getRandomColor();
+        } else if (selectedColor === "darken") {
+
         } else if (selectedColor === "erase") {
             box.style.backgroundColor = "rgb(190, 214, 219)";
         }
@@ -90,4 +83,22 @@ function getRandomColor() {
     let g = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
     return `rgb(${r}, ${g}, ${b})`;
-}
+};
+
+function resetRadioButtons() {
+    colorRadioButtons.forEach((radioButton) => {
+        if (radioButton.value === "black") {
+            radioButton.checked = true;
+            selectedColor = "black";
+        }
+    });
+};
+
+//reset grid to default size and painting status
+const resetButton = document.querySelector('.reset');
+resetButton.addEventListener('click', resetGrid);
+function resetGrid() {
+    painting = false;
+    rangeInput.value = 16;
+    rangeInput.dispatchEvent(new Event('input')); // Triggers the 'input' event manually
+};

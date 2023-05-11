@@ -25,7 +25,8 @@ body {
     font-family: 'Nothing You Could Do', cursive;
 }
 
-header h1 { /*Had to be more specific with header cos normalize didn't let me modify h1*/
+header h1 {
+    /*Had to be more specific with header cos normalize didn't let me modify h1*/
     font-size: 4.2rem;
     margin: .5rem;
     text-align: center;
@@ -39,7 +40,6 @@ label {
     display: flex;
     align-items: center;
     gap: .3rem;
-    cursor: pointer;
 }
 
 input {
@@ -62,10 +62,12 @@ input {
     gap: .5rem;
 }
 
-.box-number{
-    appearance: none; /*allows to change the input/range default appearance with css */
-    -webkit-appearance: none; /*for better compatibility with some browsers*/
-    width: 15rem;
+.box-number {
+    appearance: none;
+    /*allows to change the input/range default appearance with css */
+    -webkit-appearance: none;
+    /*for better compatibility with some browsers*/
+    width: 8rem;
     height: .5rem;
     border-radius: .2rem;
     margin: .5rem;
@@ -73,17 +75,17 @@ input {
 }
 
 .box-number::-webkit-slider-thumb {
-    -webkit-appearance: none; 
-    width: 1.5rem; 
-    height: 1.5rem; 
-    background: rgb(92, 181, 204); 
+    -webkit-appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: rgb(92, 181, 204);
     border-radius: 50px;
 }
 
-.box-number::-moz-range-thumb{
-    width: 1.5rem; 
-    height: 1.5rem; 
-    background: rgb(92, 181, 204); 
+.box-number::-moz-range-thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: rgb(92, 181, 204);
     border-radius: 50px;
 }
 
@@ -110,6 +112,7 @@ input[type=radio] {
     display: inline-block;
     border-radius: 50%;
     position: relative;
+    cursor: pointer;
 }
 
 .radio-button::after {
@@ -125,18 +128,8 @@ input[type=radio] {
     opacity: 0;
 }
 
-input[type=radio]:checked + label .radio-button::after {
+input[type=radio]:checked+label .radio-button::after {
     opacity: 1;
-}
-
-.grid {
-    border: 0.1rem solid rgb(92, 181, 204);
-    width: 80.2rem;
-    height: auto;
-}
-
-.box {
-    background-color: rgb(190, 214, 219);
 }
 
 .reset {
@@ -149,4 +142,13 @@ input[type=radio]:checked + label .radio-button::after {
 
 .choices {
     font-size: 1.8rem;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(190, 214, 219);
+    border: 1px solid rgb(92, 181, 204);
+    width: 802px;
+    height: 802px;
 }
